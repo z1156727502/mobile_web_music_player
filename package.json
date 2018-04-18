@@ -1,16 +1,16 @@
 {
-  "name": "gulptry",
+  "name": "mobileMusicPlayer",
   "version": "1.0.0",
-  "description": "gulp try",
+  "description": "mobile web music player",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "gulp"
+    "mobile" , "web" , " music player"
   ],
   "author": "zh",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^8.3.0",
     "gulp": "^3.9.1",
