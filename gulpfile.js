@@ -19,7 +19,7 @@ var folder = {
 }
 gulp.task('html', function () {
     var p = gulp.src(folder.src + 'html/*')
-    .pipe(connect.reload())
+        .pipe(connect.reload())
     if (!dev) {
         p = p.pipe(htmlclean);
     }
@@ -37,7 +37,7 @@ gulp.task('css', function () {
 })
 gulp.task('js', function () { //公共依赖不能单独打包
     var p = gulp.src(folder.src + 'js/*')
-    .pipe(connect.reload())
+        .pipe(connect.reload())
     if (!dev) {
         p = p.pipe(strip())
             .pipe(uglify());
@@ -45,27 +45,32 @@ gulp.task('js', function () { //公共依赖不能单独打包
     p.pipe(concat('main.js'))
         .pipe(gulp.dest(folder.dist + 'js/'))
 })
+gulp.task('publicjs', function () {
+    gulp.src(folder.src + 'publicjs/*')
+    .pipe(gulp.dest(folder.dist + 'publicjs/'))
+})
 gulp.task('img', function () {
-    gulp.src(folder.src +  'img/**/*')
+    gulp.src(folder.src + 'img/**/*')
         .pipe(newer(folder.dist + 'img/'))
         .pipe(imagemin())
         .pipe(connect.reload())
         .pipe(gulp.dest(folder.dist + 'img/'))
 })
-gulp.task("watch" , function(){
-    gulp.watch(folder.src + 'html/*' , ['html']);
-    gulp.watch(folder.src + 'css/*' , ['css']);
-    gulp.watch(folder.src + 'js/*' , ['js']);
-    gulp.watch(folder.src + 'img/*' , ['img']);
+gulp.task("watch", function () {
+    gulp.watch(folder.src + 'html/*', ['html']);
+    gulp.watch(folder.src + 'css/*', ['css']);
+    gulp.watch(folder.src + 'js/*', ['js']);
+    gulp.watch(folder.src + 'publicjs/*', ['publicjs']);
+    gulp.watch(folder.src + 'img/*', ['img']);
 })
-gulp.task("server" , function(){
-connect.server({
-    // name : '',
-    port : '8081',
-    root : folder.dist,
-    livereload : true
-});
+gulp.task("server", function () {
+    connect.server({
+        // name : '',
+        port: '8081',
+        root: folder.dist,
+        livereload: true
+    });
 })
-gulp.task('default' , ['html' , 'css' , 'js' , 'img' , 'watch' , 'server'] , function(){
+gulp.task('default', ['html', 'css', 'js', 'publicjs' , 'img' , 'watch', 'server'], function () {
 
 })
