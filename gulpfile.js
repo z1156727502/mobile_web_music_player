@@ -62,7 +62,7 @@ gulp.task("server" , function(){
 connect.server({
     // name : '',
     port : '8081',
-    root : folder.dist + 'html/',
+    root : folder.dist,
     livereload : true
 });
 })
