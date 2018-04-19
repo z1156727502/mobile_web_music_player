@@ -27,7 +27,7 @@ gulp.task('html', function () {
 })
 gulp.task('css', function () {
     var option = [autoprefixer, cssnano];
-    var p = gulp.src(folder.src + 'css/*')
+    var p = gulp.src(folder.src + 'css/**/*')
         .pipe(less())
         .pipe(connect.reload())
     if (!dev) {
@@ -46,7 +46,7 @@ gulp.task('js', function () { //公共依赖不能单独打包
         .pipe(gulp.dest(folder.dist + 'js/'))
 })
 gulp.task('img', function () {
-    gulp.src(folder.src + 'img/*')
+    gulp.src(folder.src +  'img/**/*')
         .pipe(newer(folder.dist + 'img/'))
         .pipe(imagemin())
         .pipe(connect.reload())
