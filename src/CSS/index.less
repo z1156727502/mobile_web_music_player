@@ -29,15 +29,19 @@ body{
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: rgb(41, 32, 18);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     .singer-pic{
         width: @singer-pic-size;
         height: @singer-pic-size;
         margin: 0 auto;
         position: relative;
         top:13vh;
-        border: 1px solid rgb(53, 167, 49);
-        background-color: aquamarine;
+        img{
+            width: 100%;
+            height: 100%;
+        }
     }
     .info{
         position: relative;
@@ -73,7 +77,7 @@ body{
             .pro-bottom{
                 height: 3px;
                 width: 100%;
-                background-color: rgb(99, 84, 18);
+                background-color: rgba(6,6,6,.5);
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
@@ -113,7 +117,7 @@ body{
                 line-height: 10vh;
             }
         }
-        .unkeep{
+        .unlike{
             .n{
                 display: inline;
             }
@@ -121,7 +125,7 @@ body{
                 display: none;
             }
         }
-        .keep{
+        .like{
             .n{
                 display: none;
             }
