@@ -2,35 +2,30 @@
 var index = 0;
 var songList;
 var audio;
+function changeMusic(f){//1下一曲；-1上一曲；0可以实现加载播放当前曲目
+    index = (index + f + songList.length) % songList.length;
+    player.render(songList[index]);
+    audio.getAudio(songList[index].audio);
+    $('.play-btn').removeClass('play').addClass('pause');
+    player.progress.renderEndTime(songList[index].duration);
+    audio.play();
+    player.progress.playingPro();//////////更新进度条
+};
 function bindEvent() {
-    // $('.wrapper').on('playChange' , function(){
-    //     audio.getAudio(songList[index].audio)
-    //     if (audio.status == 'play') {
-    //         audio.play();
-    //     }
-    // })
     $('.control-btn').on('tap' , '.last' , function(){
-        index = (index + 1 + songList.length) % songList.length;
-        player.render(songList[index]);
-        audio.getAudio(songList[index].audio);
-        audio.play();
+        changeMusic(1);
     })
     .on('tap' , '.next' , function(){
-        index = (index - 1 + songList.length) % songList.length;
-        player.render(songList[index]);
-        audio.getAudio(songList[index].audio);
-        audio.play();
+        changeMusic(-1);
     })
     .on('tap' , '.play-btn' , function(){
         if (audio.status == 'pause') {
             audio.play();
-            $('.play-btn').removeClass('play').addClass('pause')
+            $('.play-btn').removeClass('play').addClass('pause');
         } else {
             audio.pause();
-            $('.play-btn').removeClass('pause').addClass('play')
+            $('.play-btn').removeClass('pause').addClass('play');
         }
-        
-
     })
 }
 function getData(url) {
@@ -39,7 +34,9 @@ function getData(url) {
         url: url,
         // data: '',
         success : outData,
-        error : outData
+        error : function () {
+            alert('网络错误，请刷新页面或检查网络连接。');
+        }
     })
 }
 function outData(data){
@@ -48,6 +45,6 @@ function outData(data){
     bindEvent();
     audio = new player.AudioControl();
     audio.getAudio(songList[index].audio);
-    // $('.wrapper').trigger('playChange');
+    player.progress.renderEndTime(songList[index].duration);
 }
 getData('../source/data.json');

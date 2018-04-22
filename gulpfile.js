@@ -38,15 +38,17 @@ gulp.task('css', function () {
 })
 gulp.task('js', function () { //公共依赖建立单独任务
     var p = gulp.src(folder.src + 'js/*')
-        .pipe(connect.reload())
-        .pipe(sourcemap.init());
+        .pipe(connect.reload());
     if (!dev) {
         p = p.pipe(strip())
-            .pipe(uglify());
+            .pipe(uglify())
+            .pipe(concat('main.js'));
+    }else{
+        p = p.pipe(sourcemap.init())
+        .pipe(concat('main.js'))
+        .pipe(sourcemap.write());
     }
-    p.pipe(concat('main.js'))
-        .pipe(sourcemap.write())
-        .pipe(gulp.dest(folder.dist + 'js/'))
+    p.pipe(gulp.dest(folder.dist + 'js/'))
 })
 gulp.task('publicjs', function () { //公共任务
     gulp.src(folder.src + 'publicjs/*')
