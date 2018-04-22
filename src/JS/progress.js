@@ -1,6 +1,6 @@
 (function($ , root){
     function transTime(time) {
-        var min = time / 60;
+        var min = time / 60;//////////待取整
         var sec = time % 60;
         min < 10 ? '0' + min : min;
         sec < 10 ? '0' + sec : sec;
