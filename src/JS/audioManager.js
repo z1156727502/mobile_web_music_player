@@ -1,9 +1,9 @@
 ;(function($ ,root){
-    function audioControl(){
+    function audioManager(){
         this.audio = new Audio();
         this.status = 'pause';
     }
-    audioControl.prototype = {
+    audioManager.prototype = {
         play :function(){
             this.audio.play();
             this.status = 'play';
@@ -12,12 +12,17 @@
             this.audio.pause();
             this.status = 'pause';
         },
-        // last :function(){},
-        // next :function(){},
+        curTime : function(cur){
+            if (cur) {
+                this.audio.currentTime = cur;
+                return cur;
+            }
+            return this.audio.currentTime;
+        },
         getAudio :function(src){
             this.audio.src = src;
             this.audio.loade;
         }
     }
-    root.AudioControl = audioControl;
+    root.AudioManager = audioManager;
 })(window.Zepto , window.player  || (window.player = {}))
