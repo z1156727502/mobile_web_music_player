@@ -18,10 +18,10 @@ function changeMusic(f) { //1下一曲；-1上一曲；0可以实现加载播放
 
 function bindEvent() {
     $('.control-btn').on('tap', '.last', function () {
-        changeMusic(1);
+        changeMusic(-1);
     })
     .on('tap', '.next', function () {
-        changeMusic(-1);
+        changeMusic(1);
     })
     .on('tap', '.play-btn', function () {
         if (audio.status == 'pause') { //pause-play
