@@ -10,6 +10,7 @@ var uglify = require("gulp-uglify");
 var newer = require("gulp-newer");
 var imagemin = require("gulp-imagemin");
 var connect = require("gulp-connect");
+var sourcemap = require("gulp-sourcemaps");
 
 var dev = 1;
 
@@ -35,19 +36,23 @@ gulp.task('css', function () {
     }
     p.pipe(gulp.dest(folder.dist + 'css/'))
 })
-gulp.task('js', function () { //公共依赖不能单独打包
+gulp.task('js', function () { //公共依赖建立单独任务
     var p = gulp.src(folder.src + 'js/*')
-        .pipe(connect.reload())
+        .pipe(connect.reload());
     if (!dev) {
         p = p.pipe(strip())
-            .pipe(uglify());
+            .pipe(uglify())
+            .pipe(concat('main.js'));
+    }else{
+        p = p.pipe(sourcemap.init())
+        .pipe(concat('main.js'))
+        .pipe(sourcemap.write());
     }
-    p.pipe(concat('main.js'))
-        .pipe(gulp.dest(folder.dist + 'js/'))
+    p.pipe(gulp.dest(folder.dist + 'js/'))
 })
-gulp.task('publicjs', function () {
+gulp.task('publicjs', function () { //公共任务
     gulp.src(folder.src + 'publicjs/*')
-    .pipe(gulp.dest(folder.dist + 'publicjs/'))
+        .pipe(gulp.dest(folder.dist + 'publicjs/'))
 })
 gulp.task('img', function () {
     gulp.src(folder.src + 'img/**/*')
@@ -71,6 +76,6 @@ gulp.task("server", function () {
         livereload: true
     });
 })
-gulp.task('default', ['html', 'css', 'js', 'publicjs' , 'img' , 'watch', 'server'], function () {
+gulp.task('default', ['html', 'css', 'js', 'publicjs', 'img', 'watch', 'server'], function () {
 
 })

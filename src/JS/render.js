@@ -31,4 +31,4 @@
         renderIsLike(data.isLike)
     }
     root.render = init;
-})(window.Zepto , window.player || (window.player = {})) //通过window.player暴露入口函数
+})(window.Zepto , window.player || (window.player = {}))
