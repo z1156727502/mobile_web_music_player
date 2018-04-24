@@ -148,15 +148,17 @@ body {
 }
 .wrapper .song-list {
   width: 100%;
-  height: 60vh;
+  height: 60%;
   position: absolute;
   bottom: 0;
   display: none;
 }
 .wrapper .song-list .top {
   width: 100%;
-  height: 30px;
+  height: 15%;
   padding: 15px;
+  box-sizing: border-box;
+  position: relative;
   border-bottom: 1px solid #888;
   text-align: center;
   line-height: 30px;
@@ -168,9 +170,14 @@ body {
   color: #888;
 }
 .wrapper .song-list .list-content {
-  height: 100%;
+  height: 85%;
   overflow: hidden;
   background-color: rgba(20, 20, 20, 0.9);
+}
+.wrapper .song-list .list-content ul {
+  width: 100%;
+  position: relative;
+  top: 0;
 }
 .wrapper .song-list .list-content ul li {
   margin: 0 15px;

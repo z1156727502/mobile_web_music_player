@@ -4,6 +4,7 @@ var songList;
 var audio;
 var flag = false; //true：进度条动画开启
 var $ul = $('.list-content ul');
+var listMove;
 function changeMusic(f) { //1下一曲；-1上一曲；Dindex可以播放下Dindex首
     index = (index + f + songList.length) % songList.length;
     player.render(songList[index]);
@@ -51,7 +52,25 @@ function bindEvent() {
     $ul.on('tap' , 'li' , function(e){
         var d = $(this).index() - index;
         changeMusic(d);
-    }).on('awipeup ')/////列表滑动
+    }).on('touchstart' , function(e){/////列表滑动
+        var y1 = e.touches[0].clientY;
+        var t = parseFloat( $ul.css('top') );
+        $(document).on('touchmove' , function listMove(e){
+            var y2 = e.touches[0].clientY;
+            var dy = y2 - y1;
+            $ul.css('top' , t + dy + 'px');
+        }).one('touchend' , function(){
+            var ulT = $ul.position().top;
+            var h = $ul.height();
+            var conH = $('.list-content').height();
+           if( ulT > 0 || ulT < conH){
+               $ul.css('top' , '0px');
+           }else if (ulT < -h) {
+            $ul.css('top' , (-h) +'px');
+           }
+            $(document).off('touchmove' , listMove);
+        })
+    })
 }
 
 function getData(url) {
