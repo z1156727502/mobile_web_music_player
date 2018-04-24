@@ -23,6 +23,17 @@
             $('.keep').removeClass('like').addClass('unlike')
         }
     }
+    function renderSongList(data){
+        var $songL = $('.song-list');
+        var d = data;
+        $songL.find('.top .len').html('(' + d.length + '首)');
+        d.forEach(function(ele , index) {
+            $songL.find('.list-content ul').append('\
+            <li><span class="song">' +ele.song + ' </span> <span class="singer"> - ' + ele.singer + '</span></li>\
+            ');
+        });
+       
+    }
 
 
     function init(data) {
@@ -31,4 +42,5 @@
         renderIsLike(data.isLike)
     }
     root.render = init;
+    root.renderList = renderSongList;
 })(window.Zepto , window.player || (window.player = {}))

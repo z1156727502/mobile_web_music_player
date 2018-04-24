@@ -150,4 +150,64 @@ body{
             }
         }
     }
+    .song-list-bg{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(50,50,50,.3);
+        display: none;
+    }
+    .song-list{
+        width: 100%;
+        height: 60vh;
+        position: absolute;
+        bottom: 0;
+        display: none;
+        .top{
+            width: 100%;
+            height: 30px;
+            padding: 15px;
+            border-bottom: 1px solid #888;
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: rgba(20, 20, 20, .9);
+            .len{
+                color: #888;
+            }
+        }
+        .list-content{
+            height:100%;
+            overflow: hidden;
+            background-color:  rgba(20, 20, 20, .9);
+            ul{
+                li{
+                    margin: 0 15px;
+                    border-bottom: 1px solid #888;
+                    display: block;
+                    padding: 15px;
+                    .song{
+                        font-size: 18px;
+                        vertical-align: middle;
+                        color: #fff;
+                    }
+                    .singer{
+                        vertical-align: middle;
+                        color: #888;
+                    }
+                }
+                li.active{
+                    .song{
+                        color: rgb(14, 145, 14);
+                    }
+                    .singer{
+                        color: rgb(14, 145, 14);
+                    }
+                }
+            }
+             
+        }
+    }
 }
