@@ -138,3 +138,65 @@ body {
 .wrapper .control-btn .pause .n {
   display: inline;
 }
+.wrapper .song-list-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.3);
+  display: none;
+}
+.wrapper .song-list {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: 0;
+  display: none;
+}
+.wrapper .song-list .top {
+  width: 100%;
+  height: 15%;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 1px solid #888;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgba(20, 20, 20, 0.9);
+}
+.wrapper .song-list .top .len {
+  color: #888;
+}
+.wrapper .song-list .list-content {
+  height: 85%;
+  overflow: hidden;
+  background-color: rgba(20, 20, 20, 0.9);
+}
+.wrapper .song-list .list-content ul {
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.wrapper .song-list .list-content ul li {
+  margin: 0 15px;
+  border-bottom: 1px solid #888;
+  display: block;
+  padding: 15px;
+}
+.wrapper .song-list .list-content ul li .song {
+  font-size: 18px;
+  vertical-align: middle;
+  color: #fff;
+}
+.wrapper .song-list .list-content ul li .singer {
+  vertical-align: middle;
+  color: #888;
+}
+.wrapper .song-list .list-content ul li.active .song {
+  color: #0e910e;
+}
+.wrapper .song-list .list-content ul li.active .singer {
+  color: #0e910e;
+}

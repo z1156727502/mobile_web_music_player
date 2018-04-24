@@ -3,11 +3,15 @@ var index = 0;
 var songList;
 var audio;
 var flag = false; //true：进度条动画开启
-function changeMusic(f) { //1下一曲；-1上一曲；0可以实现加载播放当前曲目
+var $ul = $('.list-content ul');
+var listMove;
+function changeMusic(f) { //1下一曲；-1上一曲；Dindex可以播放下Dindex首
     index = (index + f + songList.length) % songList.length;
     player.render(songList[index]);
     audio.getAudio(songList[index].audio);
     $('.play-btn').removeClass('play').addClass('pause');
+    $ul.find('li.active').removeClass('active');
+    $ul.find('li').eq(index).addClass('active');
     player.progress.renderEndTime(songList[index].duration);
     audio.play();
     if (!flag) { //若进度条动画未开启则开启动画
@@ -37,6 +41,36 @@ function bindEvent() {
             $('.play-btn').removeClass('pause').addClass('play');
         }
     })
+    .on('tap' , '.list' , function(){
+        $('.song-list').css('display' , 'block');
+        $('.song-list-bg').css('display' , 'block');
+    });
+    $('.song-list-bg').on('tap' , function(){
+        $('.song-list').css('display' , 'none');
+        $('.song-list-bg').css('display' , 'none');
+    });
+    $ul.on('tap' , 'li' , function(e){
+        var d = $(this).index() - index;
+        changeMusic(d);
+    }).on('touchstart' , function(e){/////列表滑动
+        var y1 = e.touches[0].clientY;
+        var t = parseFloat( $ul.css('top') );
+        $(document).on('touchmove' , function listMove(e){
+            var y2 = e.touches[0].clientY;
+            var dy = y2 - y1;
+            $ul.css('top' , t + dy + 'px');
+        }).one('touchend' , function(){
+            var ulT = $ul.position().top;
+            var h = $ul.height();
+            var conH = $('.list-content').height();
+           if( ulT > 0 || ulT < conH){
+               $ul.css('top' , '0px');
+           }else if (ulT < -h) {
+            $ul.css('top' , (-h) +'px');
+           }
+            $(document).off('touchmove' , listMove);
+        })
+    })
 }
 
 function getData(url) {
@@ -54,6 +88,8 @@ function getData(url) {
 function outData(data) {
     songList = data;
     player.render(data[index]);
+    player.renderList(data);
+    $ul.find('li').eq(index).addClass('active');
     bindEvent();
     audio = new player.AudioManager();
     audio.getAudio(songList[index].audio);
