@@ -33,16 +33,13 @@ body {
   height: 50vw;
   margin: 0 auto 0;
   padding-top: 60px;
-  position: relative;
-  top: 13vh;
 }
 .wrapper .singer-pic img {
   width: 100%;
   height: 100%;
 }
 .wrapper .info {
-  position: relative;
-  top: 45vw;
+  padding-top: 60px;
   text-align: center;
   color: #fff;
 }
