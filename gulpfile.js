@@ -12,7 +12,7 @@ var imagemin = require("gulp-imagemin");
 var connect = require("gulp-connect");
 var sourcemap = require("gulp-sourcemaps");
 
-var dev = 1;
+var dev = false;
 
 var folder = {
     src: 'src/',
@@ -20,11 +20,7 @@ var folder = {
 }
 gulp.task('html', function () {
     var p = gulp.src(folder.src + 'html/*')
-        .pipe(connect.reload())
-    if (!dev) {
-        p = p.pipe(htmlclean);
-    }
-    p.pipe(gulp.dest(folder.dist))
+        .pipe(connect.reload()).pipe(htmlclean()).pipe(gulp.dest(folder.dist));
 })
 gulp.task('css', function () {
     var option = [autoprefixer, cssnano];
