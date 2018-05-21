@@ -31,9 +31,8 @@ body {
 .wrapper .singer-pic {
   width: 50vw;
   height: 50vw;
-  margin: 60px auto 0;
-  position: relative;
-  top: 13vh;
+  margin: 0 auto 0;
+  padding: 60px;
 }
 .wrapper .singer-pic img {
   width: 100%;
