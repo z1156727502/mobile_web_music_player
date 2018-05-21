@@ -63,9 +63,9 @@ function bindEvent() {
             var ulT = $ul.position().top;
             var h = $ul.height();
             var conH = $('.list-content').height();
-           if( ulT > 0 || h < conH){
+           if( ulT > 0 || h <= conH){
                $ul.css('top' , '0px');
-           }else if (ulT < -h) {
+           }else if (ulT < conH-h) {
             $ul.css('top' , (-h) +'px');
            }
             $(document).off('touchmove' , listMove);
