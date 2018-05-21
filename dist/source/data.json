@@ -1,11 +1,29 @@
 [
     {
+        "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_5.jpg",
+        "audio": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_5.mp3",
+        "song": "望归去",
+        "album": "望归去",
+        "singer": "风小筝",
+        "duration": 312,
+        "isLike": true
+    },
+    {
         "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_1.jpg",
         "audio": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_1.mp3",
         "song": "丑八怪",
         "album": "意外",
         "singer": "薛之谦",
         "duration": 253,
+        "isLike": true
+    },
+    {
+        "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_4.jpg",
+        "audio": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_4.mp3",
+        "song": "金骏眉",
+        "album": "风筝",
+        "singer": "覃沐曦",
+        "duration": 291,
         "isLike": true
     },
     {
@@ -16,6 +34,24 @@
         "singer": "陈粒",
         "duration": 297,
         "isLike": false
+    },
+    {
+        "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_6.jpg",
+        "audio": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_6.mp3",
+        "song": "梦魇",
+        "album": "风筝",
+        "singer": "覃沐曦",
+        "duration": 212,
+        "isLike": true
+    },
+    {
+        "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_4.jpg",
+        "audio": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_4.mp3",
+        "song": "金骏眉",
+        "album": "风筝",
+        "singer": "覃沐曦",
+        "duration": 291,
+        "isLike": true
     },
     {
         "image": "http://dwqc.gitee.io/mobile_web_music_player/dist/source/song_3.jpg",
