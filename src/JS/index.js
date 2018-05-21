@@ -95,4 +95,4 @@ function outData(data) {
     audio.getAudio(songList[index].audio);
     player.progress.renderEndTime(songList[index].duration);
 }
-getData('../source/data.json');
+getData('http://dwqc.gitee.io/mobile_web_music_player/source/data.json');
