@@ -27,7 +27,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  text-align: center;
 }
 .wrapper .singer-pic {
   width: 50vw;
@@ -54,8 +53,9 @@ body {
   width: 90%;
   margin: 0 auto;
   position: absolute;
+  left: 50%;
   bottom: 15vh;
-  transform: translate(0, -200%);
+  transform: translate(-50%, -200%);
   display: flex;
   align-items: center;
 }
