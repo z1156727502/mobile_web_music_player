@@ -66,7 +66,7 @@ function bindEvent() {
            if( ulT > 0 || h <= conH){
                $ul.css('top' , '0px');
            }else if (ulT < conH-h) {
-            $ul.css('top' , (-h) +'px');
+            $ul.css('top' , (conH-h) +'px');
            }
             $(document).off('touchmove' , listMove);
         })
