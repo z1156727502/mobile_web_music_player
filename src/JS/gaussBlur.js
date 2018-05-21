@@ -51,9 +51,9 @@ blurImg(img , $ele);
                 i = (y * width + x) * 4;
                 // 除以 gaussSum 是为了消除处于边缘的像素, 高斯运算不足的问题
                 // console.log(gaussSum)
-                pixes[i] = r / gaussSum;
-                pixes[i + 1] = g / gaussSum;
-                pixes[i + 2] = b / gaussSum;
+                pixes[i] = r / gaussSum > 10 ? r / gaussSum - 10 : 0 ;
+                pixes[i + 1] = g / gaussSum > 10 ? g / gaussSum - 10 : 0 ;
+                pixes[i + 2] = b / gaussSum > 10 ? b / gaussSum - 10 : 0 ;
                 // pixes[i + 3] = a ;
             }
         }
@@ -74,9 +74,9 @@ blurImg(img , $ele);
                     }
                 }
                 i = (y * width + x) * 4;
-                pixes[i] = r / gaussSum;
-                pixes[i + 1] = g / gaussSum;
-                pixes[i + 2] = b / gaussSum;
+                pixes[i] = r / gaussSum > 10 ? r / gaussSum - 10 : 0 ;
+                pixes[i + 1] = g / gaussSum > 10 ? g / gaussSum - 10 : 0 ;
+                pixes[i + 2] = b / gaussSum > 10 ? b / gaussSum - 10 : 0 ;
             }
         }
         //end
