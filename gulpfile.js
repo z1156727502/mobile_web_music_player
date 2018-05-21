@@ -24,7 +24,7 @@ gulp.task('html', function () {
     if (!dev) {
         p = p.pipe(htmlclean);
     }
-    p.pipe(gulp.dest(folder.dist + 'html/'))
+    p.pipe(gulp.dest(folder.dist))
 })
 gulp.task('css', function () {
     var option = [autoprefixer, cssnano];
