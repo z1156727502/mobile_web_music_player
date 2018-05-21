@@ -63,7 +63,7 @@ function bindEvent() {
             var ulT = $ul.position().top;
             var h = $ul.height();
             var conH = $('.list-content').height();
-           if( ulT > 0 || ulT < conH){
+           if( ulT > 0 || h < conH){
                $ul.css('top' , '0px');
            }else if (ulT < -h) {
             $ul.css('top' , (-h) +'px');
