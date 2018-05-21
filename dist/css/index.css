@@ -32,7 +32,7 @@ body {
   width: 50vw;
   height: 50vw;
   margin: 0 auto 0;
-  padding-top: 60px;
+  padding-top: 80px;
 }
 .wrapper .singer-pic img {
   width: 100%;
@@ -52,8 +52,9 @@ body {
 .wrapper .control {
   width: 90%;
   margin: 0 auto;
-  position: relative;
-  top: 60vw;
+  position: absolute;
+  bottom: 15vw;
+  transform: translate(0, -100%);
   display: flex;
   align-items: center;
 }
@@ -111,6 +112,7 @@ body {
 }
 .wrapper .control-btn div i {
   line-height: 10vh;
+  font-size: 20px;
 }
 .wrapper .control-btn .unlike .n {
   display: inline;

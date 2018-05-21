@@ -36,7 +36,7 @@ body{
         width: @singer-pic-size;
         height: @singer-pic-size;
         margin: 0 auto 0;
-        padding-top: 60px;
+        padding-top: 80px;
         // position: relative;
         // top:13vh;
         img{
@@ -60,8 +60,9 @@ body{
     .control{
         width: 90%;
         margin: 0 auto;
-        position: relative;
-        top:60vw;
+        position: absolute;
+        bottom:15vw;
+        transform: translate(0 , -100%);
         display: flex;
         align-items: center;
         div{
@@ -117,6 +118,7 @@ body{
             text-align: center;
             i{
                 line-height: 10vh;
+                font-size: 20px;
             }
         }
         .unlike{
